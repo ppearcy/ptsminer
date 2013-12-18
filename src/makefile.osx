@@ -74,7 +74,7 @@ obj/%.o: %.c
 	$(CXX) -c -O2 $(DEBUGFLAGS) -fpermissive -o $@ $<
 
 obj/%.o: intel/%.asm
-	yasm -f elf64 -o $@ $<
+	yasm -f macho64 -o $@ $<
 
 ptsminer: $(OBJS:obj/%=obj/%)
 	$(CXX) $(xLDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS)
